@@ -1,1 +1,3 @@
-exams.rb
+module Exams
+
+end
