@@ -7,8 +7,13 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<div class="container">
+	<%= yield %>
+</div>
 
-<%= yield %>
-
+<script type="text/javascript">
+ $(".container table").addClass("table table-striped")
+ $(".container form").addClass("table table-striped")
+</script>
 </body>
 </html>

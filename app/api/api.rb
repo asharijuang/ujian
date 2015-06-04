@@ -15,5 +15,5 @@ class API < Grape::API
 
     # module and class
     mount Resource::Questions
-    # mount Resource::Exams
+    mount Resource::Exams
 end

@@ -1,7 +1,8 @@
+# /app/controllers/api/v1/question.rb
 module Resource
-    class Questions < Grape::API 
-        resource :questions do 
-            desc 'get all questions'
+	class Questions < Grape::API 
+		resource :questions do 
+			desc 'get all questions'
             # GET /api/v1/questions
             get do
 		    	raw = Array.new
@@ -42,6 +43,6 @@ module Resource
 					question:params[:question]
 					})
 			end
-        end
-    end
+		end
+	end
 end
