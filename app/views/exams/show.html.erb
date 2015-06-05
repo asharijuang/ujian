@@ -1,9 +1,39 @@
 <p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @exam.name %>
-</p>
-
-<%= link_to 'Edit', edit_exam_path(@exam) %> |
 <%= link_to 'Back', exams_path %>
+
+<h4>
+  <%= @exam.name %>
+</h4>
+<%= link_to 'Edit', edit_exam_path(@exam) %>
+
+
+<div id="question">
+<% @questions.each do |question| %>
+	<p><%= question.question %></p>
+    <%= link_to 'Destroy', question, method: :delete, data: { confirm: 'Are you sure?' } %>
+
+    <%= simple_form_for(@answer) do |f| %>
+	  <%= f.error_notification %>
+
+	  <div class="form-inputs">
+	    <%= f.input :name %>
+	  </div>
+
+	  <div class="form-actions">
+	    <%= f.button :submit %>
+	  </div>
+	<% end %>
+<% end %>
+</div>
+
+<%= simple_form_for(@question) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :question %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

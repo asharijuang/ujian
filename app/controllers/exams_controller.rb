@@ -8,6 +8,10 @@ class ExamsController < ApplicationController
 
   # GET /exams/1
   def show
+    # @questions = Question.find_by(exam_id: params[:id])
+    @questions = Question.all
+    @question = Question.new
+    @answer = Answer.new
   end
 
   # GET /exams/new
