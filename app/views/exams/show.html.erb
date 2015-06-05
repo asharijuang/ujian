@@ -12,10 +12,17 @@
 	<p><%= question.question %></p>
     <%= link_to 'Destroy', question, method: :delete, data: { confirm: 'Are you sure?' } %>
 
-    <%= simple_form_for(@answer) do |f| %>
+    <div class="answers">
+      <% question.answers.each do |q| %>
+        <p> <%= q.name %> </p>
+      <% end %>
+    </div>
+
+    <%= simple_form_for([question, @answer], remote: true) do |f| %>
 	  <%= f.error_notification %>
 
 	  <div class="form-inputs">
+      answer
 	    <%= f.input :name %>
 	  </div>
 

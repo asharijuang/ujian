@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
-  resources :answers
-  resources :questions
+  resources :questions do
+  	resources :answers
+  end
   resources :exams
+
 
   mount API => '/' 
 end
