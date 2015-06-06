@@ -21,10 +21,11 @@ class QuestionsController < ApplicationController
 
   # POST /questions
   def create
-    @question = Question.new(question_params)
+    @exam = Exam.find(params[:exam_id])
+    @question = @exam.questions.build(question_params)
 
     if @question.save
-      redirect_to @question, notice: 'Question was successfully created.'
+      # redirect_to @question, notice: 'Question was successfully created.'
     else
       render :new
     end
